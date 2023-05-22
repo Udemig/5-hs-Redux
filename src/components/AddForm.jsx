@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import axios from 'axios';
 
 const AddForm = () => {
   // dispatch methodunu tanımlama
@@ -16,6 +17,8 @@ const AddForm = () => {
       date: new Date(),
     };
 
+    // oluşan objeyi apiye gönderme
+    axios.post('http://localhost:3030/todos', newTodo);
     // oluşturulan objeyi reducera sevk etme
     dispatch({
       type: 'ADD_TODO',
